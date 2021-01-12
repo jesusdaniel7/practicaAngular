@@ -68,7 +68,11 @@ export class PeliculaFilterComponent implements OnInit {
 
       this.form.patchValue(object);
       this.peliculasFilter(this.form.value);
-
+      this.form.valueChanges.subscribe((form) => {
+        this.peliculas = this.peliculasPrueba;
+        this.peliculasFilter(form);
+        this.agregarQuerys();
+      });
       
     });
   }
