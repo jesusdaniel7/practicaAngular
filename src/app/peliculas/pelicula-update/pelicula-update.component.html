@@ -1,0 +1,11 @@
+<div class="top-message">
+Editando una pelicula
+</div>
+<ng-container *ngIf="!pelicula">
+    <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</ng-container>
+<ng-container *ngIf="pelicula">
+    <app-pelicula-form (formSend)="saveChanges($event)" [model]="pelicula"></app-pelicula-form>
+</ng-container>

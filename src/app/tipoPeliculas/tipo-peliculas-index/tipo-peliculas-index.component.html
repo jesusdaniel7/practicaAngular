@@ -1,0 +1,22 @@
+<div class="top-message">Tipos de peliculas`</div>
+<a routerLink="/tipopeliculas/create" class="btn btn-warning my-3"
+  >Crear un tipo de pelicula</a
+>
+<app-generic-list [list]="tipoPeliculas">
+  <ng-container content> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tipoPelicula of tipoPeliculas">
+          <th scope="row">{{tipoPelicula.id}}</th>
+          <td>{{tipoPelicula.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</app-generic-list>

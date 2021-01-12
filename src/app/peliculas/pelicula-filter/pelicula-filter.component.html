@@ -1,0 +1,38 @@
+<div class="top-message">Encuentra tus peliculas</div>
+<form [formGroup]="form" (submit)="saveChanges()">
+  <div class="col-4 m-2 p-3 form-group">
+    <label for="name" class="form-label">Titulo</label>
+    <input
+      id="name"
+      class="form-control"
+      placeholder="Titulo"
+      formControlName="name"
+    />
+    <label for="peliculaTipoId" class="form-label">Genero</label>
+    <select class="form-select" formControlName="peliculaTipoId" aria-label="Default select example">
+      <option *ngFor="let tipoPel of tipoPelicula" [ngValue]="tipoPel.peliculaTipoId"  >
+        {{ tipoPel.name }}
+      </option>
+    </select>
+    <br>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" formControlName="new" id="new" />
+      <label class="form-check-label" for="new" 
+        >Peliculas nuevas</label
+      >
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" formControlName="enCines" id="encines" />
+      <label class="form-check-label" for="encines" 
+        >En cine</label
+      >
+    </div>
+
+    <input type="submit" class="btn btn-primary" [disabled]="form.invalid" /> |
+    <button class="btn btn-danger" (click)="cleanForm()">Limpiar filtros</button>
+
+  </div>
+</form>
+
+<app-pelicula-index [peliculas]="peliculas"></app-pelicula-index>
+

@@ -1,0 +1,58 @@
+<div class="top-message">Listado de peliculas</div>
+<a class="btn btn-warning my-3" routerLink="peliculas/create"
+  >Agrega una pelicula</a
+>
+|
+<div class="form-row">
+  <div class="col-4">
+
+    
+    <input type="text" class="form-control" (input)="btn($event.target.value)" />
+    <small id="passwordHelpBlock" class="form-text text-danger">
+      Este es un texto de prueba
+    </small>
+  </div>
+</div>
+<app-generic-list [list]="peliculas">
+  <ng-container content>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Estreno</th>
+          <th scope="col">En cines</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pelicula of peliculas">
+          <th scope="row">{{ pelicula.peliculaId }}</th>
+          <td>{{ pelicula.name }}</td>
+          <td>{{ pelicula.peliculaTipoId }}</td>
+          <td>
+            {{
+              pelicula.new === true ? "Estreno reciente" : "Estrenó este año"
+            }}
+          </td>
+          <td>{{ pelicula.enCines === true ? "En cines" : "Proximamente" }}</td>
+          <td>
+            <button
+              class="btn btn-danger"
+              (click)="Delete(pelicula.peliculaId)"
+            >
+              Eliminar
+            </button>
+            |
+            <a
+              class="btn btn-warning"
+              routerLink="peliculas/update/{{ pelicula.peliculaId }}"
+              >Editar</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</app-generic-list>

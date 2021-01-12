@@ -1,0 +1,16 @@
+<ng-container *ngIf="!list">
+    <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+</ng-container>
+
+<ng-container *ngIf="list?.length === 0">
+<h2>El listado esta vacio</h2>
+</ng-container>
+
+<ng-container *ngIf="list?.length > 0">
+    <ng-content select="[content]">
+
+    </ng-content>
+</ng-container>
+
