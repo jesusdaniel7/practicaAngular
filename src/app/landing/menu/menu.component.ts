@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SeguridadService } from 'src/app/seguridad/seguridad.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: SeguridadService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+
+  logout(){
+    console.log("Deslogueado")
+    this.service.logout();
+    this.router.navigate(['']);
   }
 
 }

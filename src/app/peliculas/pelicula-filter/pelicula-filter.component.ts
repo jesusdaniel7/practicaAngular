@@ -68,6 +68,7 @@ export class PeliculaFilterComponent implements OnInit {
 
       this.form.patchValue(object);
       this.peliculasFilter(this.form.value);
+
       this.form.valueChanges.subscribe((form) => {
         this.peliculas = this.peliculasPrueba;
         this.peliculasFilter(form);
@@ -80,7 +81,7 @@ export class PeliculaFilterComponent implements OnInit {
     var queryStrings = [];
     var form = this.form.value;
 
-    if (form.name) {
+    if (form.name !== undefined) {
       queryStrings.push(`name=${form.name}`);
     }
     if (form.peliculaTipoId !== 0) {
@@ -98,7 +99,7 @@ export class PeliculaFilterComponent implements OnInit {
     if (peli.name) {
       this.peliculas = this.peliculas.filter(
         (pelicula) =>
-          pelicula.name.indexOf(peli.name()) !== -1
+          pelicula.name.indexOf(peli.name) !== -1
       );
     }
 

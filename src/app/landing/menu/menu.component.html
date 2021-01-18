@@ -15,8 +15,33 @@
     <a class="btn btn-success mx-2" routerLink="peliculas/find"
       >Encuentra tus peliculas</a
     >
-    <a class="btn btn-success mx-2" routerLink="tipopeliculas"
-      >Tipo de peliculas</a
-    >
+    <app-autorizado>
+      <ng-container  Autorizado>
+
+        <a class="btn btn-success mx-2" routerLink="tipopeliculas"
+        >Tipo de peliculas</a
+        >
+      </ng-container>
+    </app-autorizado>
   </div>
+
+  <app-autorizado>
+    <ng-container Autorizado>
+       Hola, {{service.obtenerCampoJWT('Email')}}
+       <a class="btn btn-primary" (click)="logout()">Logout</a>
+    </ng-container>
+    <ng-container noAutorizado>
+      <a routerLink="login" class="btn btn-primary">Login</a> | 
+      <a routerLink="register" class="btn btn-primary">Register </a>
+    </ng-container>
+  </app-autorizado>
 </nav>
+
+<app-autorizado>
+  <ng-container  Autorizado>
+Estas autenticado
+  </ng-container>
+  <ng-container noAutorizado>
+    No estas autenticado mi socio
+      </ng-container>
+</app-autorizado>

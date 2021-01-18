@@ -16,6 +16,10 @@ import { TipoPeliculasIndexComponent } from './tipoPeliculas/tipo-peliculas-inde
 import { TipoPeliculasCreateComponent } from './tipoPeliculas/tipo-peliculas-create/tipo-peliculas-create.component';
 import { TipoPeliculasUpdateComponent } from './tipoPeliculas/tipo-peliculas-update/tipo-peliculas-update.component';
 import { TipoPeliculasFormComponent } from './tipoPeliculas/tipo-peliculas-form/tipo-peliculas-form.component';
+import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
+import { LoginComponent } from './seguridad/login/login.component';
+import { RegistroComponent } from './seguridad/registro/registro.component';
+import { SeguridadFormComponent } from './seguridad/seguridad-form/seguridad-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { TipoPeliculasFormComponent } from './tipoPeliculas/tipo-peliculas-form/
     TipoPeliculasIndexComponent,
     TipoPeliculasCreateComponent,
     TipoPeliculasUpdateComponent,
-    TipoPeliculasFormComponent
+    TipoPeliculasFormComponent,
+    AutorizadoComponent,
+    LoginComponent,
+    RegistroComponent,
+    SeguridadFormComponent
   ],
   imports: [
     BrowserModule,
